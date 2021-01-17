@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import { Route, Switch, Redirect } from "react-router-dom";
+
+import './css/home.css'
+
+import Compra from './pages/Compra'
+import Productos from './pages/Productos'
+import Ventas from './pages/Ventas'
 
 function App() {
+
+  let [currentTab, setCurrentTab] = useState('/Compra')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <ul className='tabs'>
+        <li className='active' rel='tab1'>Compra</li>
+        <li rel='tab2'>Productos</li>
+        <li rel='tab3'>Ventas</li>
+      </ul>
+      <div className='tab_container flex-center'>
+        <div className='center_item'>
+          <Switch>
+            <Route path='/Compra' component={Compra} />
+            <Route path='/Prodcutos' component={Productos} />
+            <Route path='/Ventas' component={Ventas} />
+            <Redirect from='/' to={currentTab} />
+          </Switch>
+          </div>
+      </div>
+    </React.Fragment>
   );
 }
 

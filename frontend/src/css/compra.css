@@ -1,0 +1,21 @@
+table {
+    border: .5px solid black;
+}
+
+th {
+    border: 1px solid black;
+    padding: 5px;
+    background-color:grey;
+    color: white;
+    
+}
+
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+input{
+    font-size: 12pt;
+    font-family: Calibri;
+}
