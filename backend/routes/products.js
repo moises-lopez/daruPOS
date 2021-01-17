@@ -36,7 +36,7 @@ router.post("/save", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  Product.find({ id: req.params.id })
+  Product.find({ _id: req.params.id })
     .then((data) => {
       console.log("Product: ", data);
       res.json(data);
