@@ -76,6 +76,7 @@ const Compra = () => {
 
         <List 
         items={items}
+        producto={false}
         className='margin_spaces'
          />
 

@@ -5,7 +5,7 @@ import Item from '../components/item'
 import '../css/compra.css'
 import '../css/home.css'
 
-const List = ({items}) => {
+const List = ({items, producto}) => {
     return ( 
         <React.Fragment>
             <div className='container margin_spaces'>
@@ -16,6 +16,12 @@ const List = ({items}) => {
                     <th>Precio</th>
                     <th>Cantidad</th>
                     <th>Categoria</th>
+                    {producto ? 
+                    <div>
+                        <th>Editar</th>
+                        <th>Borrar</th>
+                    </div>
+                    : <div/>}
                 </tr>
                 {items.map((item) => (
                     <Item
@@ -24,7 +30,7 @@ const List = ({items}) => {
                     precio={item.precio}
                     cantidad={item.cantidad}
                     categoria={item.categoria}
-                    producto={false}
+                    producto={producto}
                     />
                 ))}
 

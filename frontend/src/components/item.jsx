@@ -8,7 +8,16 @@ const Item = ({ID, nombre, precio, cantidad, categoria, producto}) => {
                 <td>{precio}</td>
                 <td>{cantidad}</td>
                 <td>{categoria}</td>
-
+                { producto ? 
+                    <div>
+                    <td> 
+                    <button> Editar</button> 
+                    </td>
+                    <td> 
+                    <button> Borrar </button>     
+                    </td>
+                    </div> 
+                    : <div/>}
             </tr>
      );
 }

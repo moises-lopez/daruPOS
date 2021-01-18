@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, useHistory } from "react-router-dom";
 
 import "./css/home.css";
 
@@ -11,15 +11,24 @@ import TabsBar from "./components/tabsbar";
 
 function App() {
   let [currentTab, setCurrentTab] = useState("/Compra");
+  let history = useHistory()
+
+  let handelTabChange = (tab) => {
+    setCurrentTab(tab)
+    history.push(tab)
+  }
 
   return (
     <React.Fragment>
-      <TabsBar />
+      <TabsBar 
+      tab={currentTab}
+      handelTabChange={handelTabChange}
+      />
       <div className="tab_container flex-center">
         <div className="center_item">
           <Switch>
             <Route path="/Compra" component={Compra} />
-            <Route path="/Prodcutos" component={Productos} />
+            <Route path="/Productos" component={Productos} />
             <Route path="/Ventas" component={Ventas} />
             <Route path="/AgregarProducto" component={AgregarProducto} />
             <Redirect from="/" to={currentTab} />
