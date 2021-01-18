@@ -5,6 +5,7 @@ import Nota from "../components/nota";
 import List from "../components/list";
 
 import "../css/compra.css";
+import '../css/home.css'
 
 const Compra = () => {
   let [keyword, setKeyword] = useState("");
@@ -32,6 +33,8 @@ const Compra = () => {
     },
   ]);
 
+  let [selectedItems, setSelectedItems] = useState([])
+
   const handleChange = (e) => {
     setKeyword(e.target.value);
   };
@@ -57,23 +60,31 @@ const Compra = () => {
 
   return (
     <React.Fragment>
-      <input
+      <div className='flex-center'>
+        <Nota 
+        items={selectedItems}
+        />
+
+        <input
         id="cityname"
         type="text"
         value={keyword}
         className="form-control"
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-      />
-      <List items={items} />
-      <Nota />
+        />
 
-      <input
-        type="button"
-        id="btnExport"
-        className="btn btn-default btn-lg pull-right"
-        value=" Export Table data into Excel "
-      />
+        <List 
+        items={items}
+        className='margin_spaces'
+         />
+
+        <input
+          type="button"
+          className='margin_spaces'
+          value="Hacer Compra"
+        />
+      </div>
     </React.Fragment>
   );
 };

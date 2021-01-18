@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 import Item from '../components/item'
 
 import '../css/compra.css'
+import '../css/home.css'
 
 const List = ({items}) => {
     return ( 
         <React.Fragment>
-            <div className='container'>
+            <div className='container margin_spaces'>
             <table className='table'>
                 <tr>
                     <th>ID</th>
