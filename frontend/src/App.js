@@ -19,14 +19,12 @@ function App() {
         <li rel='tab3'>Ventas</li>
       </ul>
       <div className='tab_container flex-center'>
-        <div className='center_item'>
           <Switch>
             <Route path='/Compra' component={Compra} />
             <Route path='/Prodcutos' component={Productos} />
             <Route path='/Ventas' component={Ventas} />
             <Redirect from='/' to={currentTab} />
           </Switch>
-          </div>
       </div>
     </React.Fragment>
   );

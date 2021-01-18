@@ -1,52 +1,54 @@
 import React, { Component } from 'react';
 
-const Nota = () => {
-    let items = [
-        {
-            id: '001',
-            nombre: 'Manga AOT',
-            precio: 23,
-            cantidad: 3,
-            categoria: 'Anime'
-        },
-        {
-            id: '002',
-            nombre: 'Manzana',
-            precio: 40,
-            cantidad: 12,
-            categoria: 'Comida'
-        },
-        {
-            id: '003',
-            nombre: 'Pixel 5',
-            precio: 8000,
-            cantidad: 2000,
-            categoria: 'Telefono'
-        }
-        
-    ]
+import Item from './item'
+
+import '../css/compra.css'
+import '../css/home.css'
+
+const Nota = ({items}) => {
 
     return (  
         <React.Fragment>
-            <div className='cart'>
+            <div className='flex-center'>
+                <div className='cart margin_spaces'>
+                <table className='table'>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Categoria</th>
+                    </tr>
+                    {items.map((item) => (
+                        <Item
+                        ID={item.id}
+                        nombre={item.nombre}
+                        precio={item.precio}
+                        cantidad={item.cantidad}
+                        categoria={item.categoria}
+                        producto={false}
+                        />
+                    ))}
 
-            </div>
+                </table>
+                </div>
 
-            <div className='total'>
-                <tr>
-                    <td>Subtotal:</td>
-                    <td>234</td>
-                </tr>
+                <div className='total total_size'>
+                    <tr>
+                        <td>Subtotal:</td>
+                        <td>234</td>
+                    </tr>
 
-                <tr>
-                    <td>Impuesto</td>
-                    <td>567</td>
-                </tr>
+                    <tr>
+                        <td>Impuesto</td>
+                        <td>567</td>
+                    </tr>
 
-                <tr>
-                    <td>Total</td>
-                    <td>120304</td>
-                </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>120304</td>
+                    </tr>
+                </div>
             </div>
         </React.Fragment>
     );

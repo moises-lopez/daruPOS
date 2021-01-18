@@ -4,7 +4,7 @@ table {
 
 th {
     border: 1px solid black;
-    padding: 5px;
+    padding: 0.6rem;
     background-color:grey;
     color: white;
     
@@ -12,10 +12,22 @@ th {
 
 td {
     border: 1px solid black;
-    padding: 5px;
+    padding: 0.6rem;
 }
 
 input{
     font-size: 12pt;
     font-family: Calibri;
+}
+
+.margin_spaces {
+    margin: 2rem;
+}
+
+.size {
+    font-size: large;
+}
+
+.total_size {
+    font-size: 1.6rem;
 }

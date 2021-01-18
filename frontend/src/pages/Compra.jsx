@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 import Nota from '../components/nota'
 import List from '../components/list'
@@ -7,6 +7,8 @@ import '../css/compra.css'
 
 const Compra = () => {
 
+    let [selectedItems, setSelectedItems] = useState([])
+    
     let items = [
         {
             id: '001',
@@ -34,12 +36,17 @@ const Compra = () => {
 
     return ( 
         <React.Fragment>
-            <Nota/>
-            <List
-            items={items}
-            />
-            <input type="button" id="btnExport" class="btn btn-default btn-lg pull-right" value=" Export Table data into Excel " />
-            
+                <div className='margin_spaces size'>
+                    <Nota
+                    items={selectedItems}
+                    />
+                </div>
+                <div className='margin_spaces size'>
+                    <List
+                    items={items}
+                    />
+                </div>
+                <input type="button" value="Realizar Compra" />
         </React.Fragment>
      );
 }
