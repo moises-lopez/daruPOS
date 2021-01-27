@@ -20,6 +20,7 @@ router.post("/save", (req, res) => {
   const data = req.body;
 
   const newSale = new Sale(data);
+  console.log("data ", data);
 
   newSale.save((error) => {
     if (error) {

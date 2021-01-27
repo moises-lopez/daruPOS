@@ -62,6 +62,13 @@ const Compra = () => {
       setSelectedItems(newItems);
     }
   };
+  const handleVenta = () => {
+    let dataSale = {
+      total: total,
+      arrayProducts: selectedItems,
+    };
+    axios.post("http://localhost:5000/api/sales/save", dataSale);
+  };
 
   return (
     <React.Fragment>
@@ -79,7 +86,12 @@ const Compra = () => {
 
         <List items={items} producto={false} className="margin_spaces" />
 
-        <input type="button" className="margin_spaces" value="Hacer Compra" />
+        <input
+          type="button"
+          onClick={handleVenta}
+          className="margin_spaces"
+          value="Hacer Compra"
+        />
       </div>
     </React.Fragment>
   );

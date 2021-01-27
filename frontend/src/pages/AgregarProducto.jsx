@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+
+import "../css/producto.css";
+import Row from "./../components/row";
+
 const AgregarProducto = () => {
   let [product, setProduct] = useState({});
 
@@ -15,47 +19,44 @@ const AgregarProducto = () => {
 
   return (
     <React.Fragment>
-      <input
-        id="id"
-        type="text"
-        value={product.id}
-        className="form-control"
-        name="_id"
-        onChange={handleChange}
-      />
-      <input
-        id="name"
-        type="text"
-        value={product.name}
-        className="form-control"
-        name="name"
-        onChange={handleChange}
-      />
-      <input
-        id="unitPrice"
-        type="text"
-        value={product.unitPrice}
-        className="form-control"
-        name="unitPrice"
-        onChange={handleChange}
-      />
-      <input
-        id="category"
-        type="text"
-        value={product.category}
-        className="form-control"
-        name="category"
-        onChange={handleChange}
-      />
-      <input
-        id="quantity"
-        type="text"
-        value={product.quantity}
-        className="form-control"
-        name="quantity"
-        onChange={handleChange}
-      />
-      <button onClick={addProduct}>Send</button>
+      <div className="container">
+        <h1>AGREGAR PRODUCTO</h1>
+        <Row
+          label="ID"
+          name="_id"
+          value={product._id}
+          handleChange={handleChange}
+        />
+        <Row
+          label="Name"
+          name="name"
+          value={product._name}
+          handleChange={handleChange}
+        />
+        <Row
+          label="Unit Price"
+          name="unitPrice"
+          value={product.unitPrice}
+          handleChange={handleChange}
+        />
+        <Row
+          label="Category"
+          name="category"
+          value={product.category}
+          handleChange={handleChange}
+        />
+        <Row
+          label="Quantity"
+          name="quantity"
+          value={product.quantity}
+          handleChange={handleChange}
+        />
+      </div>
+      <div className="button-container">
+        <button className="button" onClick={addProduct}>
+          Agregar
+        </button>
+      </div>
     </React.Fragment>
   );
 };

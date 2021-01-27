@@ -8,22 +8,19 @@ import Productos from "./pages/Productos";
 import Ventas from "./pages/Ventas";
 import AgregarProducto from "./pages/AgregarProducto";
 import TabsBar from "./components/tabsbar";
-
+import EditarProducto from "./pages/EditarProducto";
 function App() {
   let [currentTab, setCurrentTab] = useState("/Compra");
-  let history = useHistory()
+  let history = useHistory();
 
   let handelTabChange = (tab) => {
-    setCurrentTab(tab)
-    history.push(tab)
-  }
+    setCurrentTab(tab);
+    history.push(tab);
+  };
 
   return (
     <React.Fragment>
-      <TabsBar 
-      tab={currentTab}
-      handelTabChange={handelTabChange}
-      />
+      <TabsBar tab={currentTab} handelTabChange={handelTabChange} />
       <div className="tab_container flex-center">
         <div className="center_item">
           <Switch>
@@ -31,6 +28,8 @@ function App() {
             <Route path="/Productos" component={Productos} />
             <Route path="/Ventas" component={Ventas} />
             <Route path="/AgregarProducto" component={AgregarProducto} />
+            <Route path="/EditarProducto" component={EditarProducto} />
+
             <Redirect from="/" to={currentTab} />
           </Switch>
         </div>

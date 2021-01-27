@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import Item from "../components/item";
 
 import "../css/compra.css";
@@ -17,10 +16,10 @@ const List = ({ items, producto }) => {
             <th>Cantidad</th>
             <th>Categoria</th>
             {producto ? (
-              <div>
+              <React.Fragment>
                 <th>Editar</th>
                 <th>Borrar</th>
-              </div>
+              </React.Fragment>
             ) : (
               <div />
             )}
